@@ -17,3 +17,22 @@ export interface BasicTweetSearchCriteria {
      */
     hashtag: string;
 }
+
+/**
+ * Represents a user that will publish tweets
+ */
+export interface TwitterUser {
+    id: number;
+    name: string;
+    screen_name: string;
+}
+
+/**
+ * Represents a basic tweet
+ */
+export interface Tweet {
+    id: number;
+    created: Date;
+    text: string;
+    user: TwitterUser;
+}
