@@ -86,11 +86,19 @@ const testingTweets: Tweet[] = [{
     hashtags: [hashtagBar, hashtagFoo]
 }];
 
+/**
+ * Provides access to the Twitter API
+ */
 export class TwitterApi {
 
+    /**
+     * Searches for tweets based on the given criteria
+     * @param searchCriteria 
+     */
     public static searchTweets(searchCriteria: BasicTweetSearchCriteria): Promise<Tweet[]> {
         return new Promise((resolve) => {
             resolve(
+                // This is a bad place to put this logic, but it's fine here since this is temporary/proof of concept.
                 testingTweets.filter((tweet: Tweet) => {
                     tweet.hashtags.includes(searchCriteria.hashtag);
                 }).slice(0, searchCriteria.limit)
